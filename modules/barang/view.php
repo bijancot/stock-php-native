@@ -81,7 +81,7 @@
             <?php  
             $no = 1;
             // fungsi query untuk menampilkan data dari tabel barang
-            $query = mysqli_query($mysqli, "SELECT a.id_barang,a.nama_barang,a.id_jenis,a.id_satuan,a.stok,b.id_jenis,b.nama_jenis,c.id_satuan,c.nama_satuan 
+            $query = mysqli_query($mysqli, "SELECT a.id_barang,a.nama_barang,a.id_jenis,a.id_satuan,a.stok,b.id_jenis,b.nama_jenis,c.id_satuan,c.nama_satuan,a.foto_barang
                                             FROM is_barang as a INNER JOIN is_jenis_barang as b INNER JOIN is_satuan as c
                                             ON a.id_jenis=b.id_jenis AND a.id_satuan=c.id_satuan ORDER BY id_barang DESC")
                                             or die('Ada kesalahan pada query tampil Data Barang: '.mysqli_error($mysqli));
@@ -92,7 +92,7 @@
               echo "<tr>
                       <td width='30' class='center'>$no</td>
                       <td width='80' class='center'>$data[id_barang]</td>
-                      <td width='180' class='center'><img src='gambar/$data[foto_barang]'/></td>
+                      <td width='180' class='center'><img src='images/barang/$data[foto_barang]'/></td>
                       <td width='180' class='center'>$data[nama_barang]</td>
                       <td width='150' class='center'>$data[nama_jenis]</td>
                       <td width='80' class='center'>$data[stok]</td>
