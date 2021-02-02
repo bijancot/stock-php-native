@@ -1,0 +1,8 @@
+username: admin
+password: admin
+
+username: manajer
+password: manajer
+
+username: user
+password: user
