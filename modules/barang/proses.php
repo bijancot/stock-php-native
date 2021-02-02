@@ -33,7 +33,7 @@ else {
                 //cek ukuran gambar, jika tidak sesuai dengan batas, akan gagal
                 if($ukuran < 1044070){		
                     $xx = $rand.'_'.$filename;
-                    move_uploaded_file($_FILES['foto']['tmp_name'], 'gambar/'.$rand.'_'.$filename);
+                    move_uploaded_file($_FILES['foto_barang']['tmp_name'], 'gambar/'.$rand.'_'.$filename);
                     
                     $created_user = $_SESSION['id_user'];
 
@@ -77,7 +77,7 @@ else {
                     //cek ukuran gambar, jika tidak sesuai dengan batas, akan gagal
                     if($ukuran < 1044070){		
                         $xx = $rand.'_'.$filename;
-                        move_uploaded_file($_FILES['foto']['tmp_name'], 'gambar/'.$rand.'_'.$filename);
+                        move_uploaded_file($_FILES['foto_barang']['tmp_name'], 'gambar/'.$rand.'_'.$filename);
                         
                         $updated_user = $_SESSION['id_user'];
 
