@@ -21,7 +21,7 @@ if ($_GET['form']=='add') { ?>
       <div class="col-md-12">
         <div class="box box-primary">
           <!-- form start -->
-          <form role="form" class="form-horizontal" action="modules/barang/proses.php?act=insert" method="POST">
+          <form role="form" class="form-horizontal" action="modules/barang/proses.php?act=insert" method="POST" enctype="multipart/form-data">
             <div class="box-body">
               <?php  
               // fungsi untuk membuat id transaksi
@@ -144,7 +144,7 @@ elseif ($_GET['form']=='edit') {
       <div class="col-md-12">
         <div class="box box-primary">
           <!-- form start -->
-          <form role="form" class="form-horizontal" action="modules/barang/proses.php?act=update" method="POST">
+          <form role="form" class="form-horizontal" action="modules/barang/proses.php?act=update" method="POST" enctype="multipart/form-data">
             <div class="box-body">
               
               <div class="form-group">
