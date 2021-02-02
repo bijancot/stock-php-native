@@ -93,7 +93,7 @@ if ($_GET['form']=='add') { ?>
               <div class="form-group">
                 <label class="col-sm-2 control-label">GAMBAR PRODUK</label>
                 <div class="col-sm-5">
-                  <input type="file" name="foto-barang">
+                  <input type="file" name="foto_barang">
                 </div>
               </div>
             </div><!-- /.box body -->
@@ -196,7 +196,7 @@ elseif ($_GET['form']=='edit') {
               <div class="form-group">
                 <label class="col-sm-2 control-label">GAMBAR PRODUK</label>
                 <div class="col-sm-5">
-                  <input type="file" name="foto-barang">
+                  <input type="file" name="foto_barang">
                 </div>
               </div>
 

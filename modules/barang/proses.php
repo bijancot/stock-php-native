@@ -22,8 +22,8 @@ else {
             //data gambar
             $rand = rand();
             $ekstensi =  array('png','jpg','jpeg','gif');
-            $filename = $_FILES['foto-barang']['name'];
-            $ukuran = $filename['foto-barang']['size'];
+            $filename = $_FILES['foto_barang']['name'];
+            $ukuran = $filename['foto_barang']['size'];
             $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
             //cek ekstensi gambar, jika tidak sesuai dengan $ekstensi, akan gagal
@@ -67,8 +67,8 @@ else {
                  //data gambar
                 $rand = rand();
                 $ekstensi =  array('png','jpg','jpeg','gif');
-                $filename = $_FILES['foto-barang']['name'];
-                $ukuran = $filename['foto-barang']['size'];
+                $filename = $_FILES['foto_barang']['name'];
+                $ukuran = $filename['foto_barang']['size'];
                 $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
                 if(!in_array($ext,$ekstensi) ) {
