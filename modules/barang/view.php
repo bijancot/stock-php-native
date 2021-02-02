@@ -49,6 +49,14 @@
               Stok Barang Berhasil Dihapus
             </div>";
     }
+
+    elseif ($_GET['alert'] == 4) {
+      echo "<div class='alert alert-danger alert-dismissable'>
+              <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
+              <h4>  <i class='icon fa fa-check-circle'></i> SUKSES</h4>
+              Cek lagi foto barang yang anda unggah ;D
+            </div>";
+    }
     ?>
 
       <div class="box box-primary">
@@ -61,6 +69,7 @@
                 <th class="center">NO</th>
                 <th class="center">ID</th>
                 <th class="center">BARANG</th>
+                <th class="center">FOTO BARANG</th>
                 <th class="center">JENIS</th>
                 <th class="center">STOK</th>
                 <th class="center">SATUAN</th>
