@@ -19,18 +19,39 @@ else {
             $id_jenis     = mysqli_real_escape_string($mysqli, trim($_POST['jenis']));
             $id_satuan    = mysqli_real_escape_string($mysqli, trim($_POST['satuan']));
 
-            $created_user = $_SESSION['id_user'];
+            //data gambar
+            $rand = rand();
+            $ekstensi =  array('png','jpg','jpeg','gif');
+            $filename = $_FILES['foto-barang']['name'];
+            $ukuran = $filename['foto-barang']['size'];
+            $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
-            // perintah query untuk menyimpan data ke tabel barang
-            $query = mysqli_query($mysqli, "INSERT INTO is_barang(id_barang,nama_barang,id_jenis,id_satuan,created_user,updated_user) 
-                                            VALUES('$id_barang','$nama_barang','$id_jenis','$id_satuan','$created_user','$created_user')")
-                                            or die('Ada kesalahan pada query insert : '.mysqli_error($mysqli));    
+            //cek ekstensi gambar, jika tidak sesuai dengan $ekstensi, akan gagal
+            if(!in_array($ext,$ekstensi) ) {
+                header("location: ../../main.php?module=barang&alert=4");
+            }else{
+                //cek ukuran gambar, jika tidak sesuai dengan batas, akan gagal
+                if($ukuran < 1044070){		
+                    $xx = $rand.'_'.$filename;
+                    move_uploaded_file($_FILES['foto']['tmp_name'], 'gambar/'.$rand.'_'.$filename);
+                    
+                    $created_user = $_SESSION['id_user'];
 
-            // cek query
-            if ($query) {
-                // jika berhasil tampilkan pesan berhasil simpan data
-                header("location: ../../main.php?module=barang&alert=1");
-            }   
+                    // perintah query untuk menyimpan data ke tabel barang
+                    $query = mysqli_query($mysqli, "INSERT INTO is_barang(id_barang,nama_barang,id_jenis,id_satuan,created_user,updated_user,foto_barang) 
+                                                    VALUES('$id_barang','$nama_barang','$id_jenis','$id_satuan','$created_user','$created_user','$xx')")
+                                                    or die('Ada kesalahan pada query insert : '.mysqli_error($mysqli));    
+        
+                    // cek query
+                    if ($query) {
+                        // jika berhasil tampilkan pesan berhasil simpan data
+                        header("location: ../../main.php?module=barang&alert=1");
+                    }   
+
+                }else{
+                    header("location: ../../main.php?module=barang&alert=gagak_ukuran");
+                }
+            }
         }   
     }
     
@@ -43,21 +64,43 @@ else {
                 $id_jenis     = mysqli_real_escape_string($mysqli, trim($_POST['jenis']));
                 $id_satuan    = mysqli_real_escape_string($mysqli, trim($_POST['satuan']));
 
-                $updated_user = $_SESSION['id_user'];
+                 //data gambar
+                $rand = rand();
+                $ekstensi =  array('png','jpg','jpeg','gif');
+                $filename = $_FILES['foto-barang']['name'];
+                $ukuran = $filename['foto-barang']['size'];
+                $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
-                // perintah query untuk mengubah data pada tabel barang
-                $query = mysqli_query($mysqli, "UPDATE is_barang SET nama_barang    = '$nama_barang',
-                                                                     id_jenis       = '$id_jenis',
-                                                                     id_satuan      = '$id_satuan',
-                                                                     updated_user   = '$updated_user'
-                                                               WHERE id_barang      = '$id_barang'")
-                                                or die('Ada kesalahan pada query update : '.mysqli_error($mysqli));
+                if(!in_array($ext,$ekstensi) ) {
+                    header("location: ../../main.php?module=barang&alert=4");
+                }else{
+                    //cek ukuran gambar, jika tidak sesuai dengan batas, akan gagal
+                    if($ukuran < 1044070){		
+                        $xx = $rand.'_'.$filename;
+                        move_uploaded_file($_FILES['foto']['tmp_name'], 'gambar/'.$rand.'_'.$filename);
+                        
+                        $updated_user = $_SESSION['id_user'];
 
-                // cek query
-                if ($query) {
-                    // jika berhasil tampilkan pesan berhasil update data
-                    header("location: ../../main.php?module=barang&alert=2");
-                }         
+                        // perintah query untuk mengubah data pada tabel barang
+                        $query = mysqli_query($mysqli, "UPDATE is_barang SET nama_barang    = '$nama_barang',
+                                                                             id_jenis       = '$id_jenis',
+                                                                             id_satuan      = '$id_satuan',
+                                                                             updated_user   = '$updated_user',
+                                                                             foto_barang    = '$xx'
+                                                                       WHERE id_barang      = '$id_barang'")
+                                                        or die('Ada kesalahan pada query update : '.mysqli_error($mysqli));
+        
+                        // cek query
+                        if ($query) {
+                            // jika berhasil tampilkan pesan berhasil update data
+                            header("location: ../../main.php?module=barang&alert=2");
+                        }         
+    
+                    }else{
+                        header("location: ../../main.php?module=barang&alert==gagak_ukuran");
+                    }
+                }
+                
             }
         }
     }

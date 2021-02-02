@@ -193,6 +193,13 @@ elseif ($_GET['form']=='edit') {
                 </div>
               </div>
 
+              <div class="form-group">
+                <label class="col-sm-2 control-label">GAMBAR PRODUK</label>
+                <div class="col-sm-5">
+                  <input type="file" name="foto-barang">
+                </div>
+              </div>
+
             </div><!-- /.box body -->
 
             <div class="box-footer">
