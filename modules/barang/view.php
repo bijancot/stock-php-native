@@ -83,6 +83,7 @@
               echo "<tr>
                       <td width='30' class='center'>$no</td>
                       <td width='80' class='center'>$data[id_barang]</td>
+                      <td width='180' class='center'><img src='gambar/$data[foto_barang]'/></td>
                       <td width='180' class='center'>$data[nama_barang]</td>
                       <td width='150' class='center'>$data[nama_jenis]</td>
                       <td width='80' class='center'>$data[stok]</td>
