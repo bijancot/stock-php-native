@@ -68,8 +68,8 @@
               <tr>
                 <th class="center">NO</th>
                 <th class="center">ID</th>
-                <th class="center">BARANG</th>
                 <th class="center">FOTO BARANG</th>
+                <th class="center">BARANG</th>
                 <th class="center">JENIS</th>
                 <th class="center">STOK</th>
                 <th class="center">SATUAN</th>
