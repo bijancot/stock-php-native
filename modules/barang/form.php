@@ -118,7 +118,7 @@ if ($_GET['form']=='add') { ?>
 elseif ($_GET['form']=='edit') { 
   if (isset($_GET['id'])) {
       // fungsi query untuk menampilkan data dari tabel barang
-      $query = mysqli_query($mysqli, "SELECT a.id_barang,a.nama_barang,a.id_jenis,a.id_satuan,b.id_jenis,b.nama_jenis,c.id_satuan,c.nama_satuan 
+      $query = mysqli_query($mysqli, "SELECT a.id_barang,a.nama_barang,a.id_jenis,a.id_satuan,b.id_jenis,b.nama_jenis,c.id_satuan,c.nama_satuan,a.foto_barang
                                       FROM is_barang as a INNER JOIN is_jenis_barang as b INNER JOIN is_satuan as c
                                       ON a.id_jenis=b.id_jenis AND a.id_satuan=c.id_satuan WHERE id_barang='$_GET[id]'") 
                                       or die('Ada kesalahan pada query tampil Data Barang : '.mysqli_error($mysqli));
@@ -200,6 +200,12 @@ elseif ($_GET['form']=='edit') {
                 </div>
               </div>
 
+              <div class="form-group">
+                <label class="col-sm-2 control-label">GAMBAR LAMA</label>
+                <div class="col-sm-5">
+                  <img src="<?php echo "<img height='100'src='images/barang/$data[foto_barang]'"?>"/>
+                </div>
+              </div>
             </div><!-- /.box body -->
 
             <div class="box-footer">
