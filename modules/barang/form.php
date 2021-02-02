@@ -203,7 +203,7 @@ elseif ($_GET['form']=='edit') {
               <div class="form-group">
                 <label class="col-sm-2 control-label">GAMBAR LAMA</label>
                 <div class="col-sm-5">
-                  <img src="<?php echo "<img height='100'src='images/barang/$data[foto_barang]'"?>"/>
+                  <img height='100' src="<?php echo "'images/barang/$data[foto_barang]'"?>"/>
                 </div>
               </div>
             </div><!-- /.box body -->
